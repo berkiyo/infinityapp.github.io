@@ -1,0 +1,129 @@
+---
+const features = [
+	{
+		title: "Track Daily Habits",
+		description: "Easily monitor your progress for each habit and goal. Stay on track, build consistency, and achieve personal growth.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>`
+	},
+	{
+		title: "Customizable Goals with Colors",
+		description: "Personalize each habit by assigning unique colors, helping you stay organized and motivated.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`
+	},
+	{
+		title: "Streak Tracking with Visual Cues",
+		description: "See your progress at a glance with color-coded streaks. Break the chain, and you'll know!",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>`
+	},
+	{
+		title: "Fast and Efficient Performance",
+		description: "Lightweight and responsive, designed to track your habits without slowing down your workflow.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`
+	},
+	{
+		title: "iCloud Sync",
+		description: "Seamless cloud synchronization between all your devices, so your data is always up to date.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>`
+	},
+	{
+		title: "Multi-Device Support",
+		description: "Track habits from your iPhone, iPad, or other iOS devices without missing a beat.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>`
+	}
+];
+---
+
+<section id="features" class="features">
+	<div class="container">
+		<div class="section-header">
+			<h2>Features</h2>
+			<p>Everything you need to build better habits</p>
+		</div>
+
+		<div class="features-grid">
+			{
+				features.map(feature => (
+					<div class="feature-card">
+						<div class="feature-icon" set:html={feature.icon} />
+						<h3>{feature.title}</h3>
+						<p>{feature.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.features {
+		padding: 6rem 0;
+		background: var(--background);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-header p {
+		font-size: 1.25rem;
+		color: var(--text-light);
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.feature-card {
+		padding: 2rem;
+		border-radius: 1rem;
+		background: color-mix(in srgb, var(--accent) 5%, var(--background));
+		transition: transform 0.2s ease;
+	}
+
+	.feature-card:hover {
+		transform: translateY(-4px);
+	}
+
+	.feature-icon {
+		display: inline-flex;
+		padding: 1rem;
+		border-radius: 0.75rem;
+		background: var(--accent);
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.feature-card h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	.feature-card p {
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.features {
+			padding: 4rem 0;
+		}
+
+		.section-header h2 {
+			font-size: 2rem;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style> 

@@ -1,0 +1,141 @@
+---
+const proFeatures = [
+	{
+		title: "Custom Reminders & Notifications",
+		description: "Set personalized alerts to keep you on track and motivated! Never forget a habit with flexible reminder settings tailored to your schedule.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`
+	},
+	{
+		title: "Streak Progress Graphs",
+		description: "Get visual insights into your progress over time with easy-to-read streak graphs. Track your habit timeline and celebrate your achievements!",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`
+	},
+	{
+		title: "Custom App Icons",
+		description: "Stand out by customizing the app icon to match your style. Make your habit tracker truly yours.",
+		icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>`
+	}
+];
+---
+
+<section id="pro" class="pro-features">
+	<div class="container">
+		<div class="section-header">
+			<span class="pro-badge">PRO</span>
+			<h2>Unlock the Full Potential</h2>
+			<p>Supercharge your habit-tracking experience with premium features</p>
+		</div>
+
+		<div class="pro-features-grid">
+			{
+				proFeatures.map(feature => (
+					<div class="pro-feature-card">
+						<div class="pro-feature-icon" set:html={feature.icon} />
+						<h3>{feature.title}</h3>
+						<p>{feature.description}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="pro-cta">
+			<a href="https://apps.apple.com/app/infinity" class="btn btn-primary">Upgrade to Pro</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.pro-features {
+		padding: 6rem 0;
+		background: linear-gradient(
+			180deg,
+			var(--background) 0%,
+			color-mix(in srgb, var(--accent) 10%, var(--background)) 100%
+		);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.pro-badge {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		background: var(--accent);
+		color: white;
+		border-radius: 2rem;
+		font-weight: 600;
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
+	.section-header p {
+		font-size: 1.25rem;
+		color: var(--text-light);
+	}
+
+	.pro-features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.pro-feature-card {
+		padding: 2rem;
+		border-radius: 1rem;
+		background: var(--background);
+		border: 1px solid var(--border);
+		transition: all 0.2s ease;
+	}
+
+	.pro-feature-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--accent);
+	}
+
+	.pro-feature-icon {
+		display: inline-flex;
+		padding: 1rem;
+		border-radius: 0.75rem;
+		background: color-mix(in srgb, var(--accent) 15%, var(--background));
+		color: var(--accent);
+		margin-bottom: 1rem;
+	}
+
+	.pro-feature-card h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	.pro-feature-card p {
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	.pro-cta {
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.pro-features {
+			padding: 4rem 0;
+		}
+
+		.section-header h2 {
+			font-size: 2rem;
+		}
+
+		.pro-features-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style> 

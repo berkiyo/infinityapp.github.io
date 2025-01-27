@@ -1,0 +1,101 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title, 
+	description = "Make habit tracking quick and easy! This app helps you build positive habits and achieve your goals."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+		<style is:global>
+			:root {
+				--accent: #007AFF;
+				--accent-light: #4DA3FF;
+				--background: #ffffff;
+				--text: #13151A;
+				--text-light: #4A5568;
+				--border: #E2E8F0;
+			}
+
+			html {
+				font-family: system-ui, sans-serif;
+				background: var(--background);
+				background-size: 224px;
+				color: var(--text);
+				scroll-behavior: smooth;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				min-height: 100vh;
+				overflow-x: hidden;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--background: #13151A;
+					--text: #ffffff;
+					--text-light: #A0AEC0;
+					--border: #2D3748;
+				}
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1.5rem;
+			}
+
+			.gradient-text {
+				background: linear-gradient(45deg, var(--accent), var(--accent-light));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			.btn {
+				display: inline-block;
+				padding: 0.75rem 1.5rem;
+				border-radius: 0.5rem;
+				font-weight: 600;
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+
+			.btn-primary {
+				background: var(--accent);
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background: var(--accent-light);
+			}
+
+			.btn-secondary {
+				background: var(--border);
+				color: var(--text);
+			}
+
+			.btn-secondary:hover {
+				background: var(--text-light);
+				color: var(--background);
+			}
+		</style>
+	</body>
+</html>
